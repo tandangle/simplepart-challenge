@@ -1,0 +1,248 @@
+/* -- Reset -- */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+/* Remove default padding */
+ul[class],
+ol[class] {
+	padding: 0;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+	margin: 0;
+}
+
+/* Set core body defaults */
+body {
+	min-height: 100vh;
+	scroll-behavior: smooth;
+	text-rendering: optimizeSpeed;
+	line-height: 1.5;
+	position: relative;
+}
+
+/* Remove list styles on ul, ol elements with a class attribute */
+ul[class],
+ol[class] {
+	list-style: none;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+	text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img {
+	max-width: 100%;
+	display: block;
+}
+
+/* Natural flow and rhythm in articles by default */
+article > * + * {
+	margin-top: 1em;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+	* {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}
+
+/* -- Variables -- */
+:root {
+	/* Colors */
+	--black: #333333;
+	--blue: #3f63a1;
+	--grey: #d8d8d8;
+	--lightGrey: #f4f4f4;
+
+	/* Sizes */
+	--xxs: 0.25rem;
+	--xs: 0.5rem;
+	--small: 0.75rem;
+	--medium: 1rem;
+	--large: 1.333rem;
+	--xl: 1.777rem;
+	--xxl: 2.369rem;
+}
+
+/* -- Utilities -- */
+
+/* Hides the element from the screen, but not from assistive technology */
+.visually-hidden,
+.skip-link:not(:focus) {
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: auto;
+	margin: 0;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+	white-space: nowrap;
+}
+
+/* Hides the element completely */
+.hidden {
+	display: none;
+}
+
+/* Creates a stack of elements horizonatally */
+.flowHrz > * + * {
+	margin-left: var(--medium);
+}
+
+/* Creates a stack of elements vertically */
+.flowVrt {
+	margin-top: var(--medium);
+}
+
+/* Mirrors elements left ro right */
+.mirror {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+/* -- Global -- */
+body {
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
+		'Helvetica Neue', sans-serif;
+}
+a {
+	text-decoration: none;
+}
+
+/* -- Components -- */
+
+/* Skip Link */
+.skip-link {
+	position: absolute;
+	top: get-size('400');
+	left: get-size('400');
+	z-index: 99;
+}
+
+/* Welcome Message */
+.welcome-message {
+	color: var(--blue);
+	font-size: var(--small);
+	padding: var(--medium);
+}
+
+/* Main Nav */
+.main-nav {
+	padding: 0 var(--medium);
+	display: flex;
+}
+
+/* Main Nav Logo */
+.main-nav .logo {
+	width: 8rem;
+	height: auto;
+}
+
+/* Main Nav Title */
+.main-nav .mast-head {
+	margin-left: var(--large);
+}
+
+.main-nav .mast-head .site-title {
+	font-size: var(--xxl);
+}
+
+/* Main Nav Nav Bar */
+.main-nav .mast-head .site-nav .site-nav--link {
+	color: var(--grey);
+	border-top: 1px solid currentColor;
+	font-style: italic;
+	padding: var(--xxs);
+}
+
+.main-nav .mast-head .site-nav .site-nav--link.active {
+	color: var(--black);
+}
+
+/* Utility Bar */
+.utility-bar {
+	background: white;
+	background: linear-gradient(white, var(--lightGrey));
+	align-items: flex-start;
+	padding: 0 var(--medium);
+}
+
+.utility-bar .utility-bar--nav {
+	border-left: solid 1px var(--lightGrey);
+	border-right: solid 1px var(--grey);
+	margin: var(--medium) 0;
+}
+
+.utility-bar .utility-bar--nav a {
+	color: var(--blue);
+	padding: var(--xxs);
+	margin: 0 var(--xxs);
+	border-left: solid 1px var(--grey);
+	border-right: solid 1px var(--lightGrey);
+	line-height: 1.5rem;
+}
+
+.utility-bar .utility-bar--nav .active {
+	border-radius: var(--xs);
+	background-color: var(--blue);
+}
+
+.utility-bar .utility-bar--search-box {
+	background: var(--black);
+	padding: var(--medium);
+	border-radius: var(--xs) var(--xs) 0 0;
+}
+
+.utility-bar .utility-bar--search-box #searchInputLabel {
+	color: white;
+}
+
+.utility-bar .utility-bar--search-box #searchInputLabel #searchInput {
+	margin-left: var(--medium);
+	font-size: var(--small);
+	padding: var(--xxs) var(--xs);
+	border: none;
+	appearance: none;
+}
+
+.utility-bar .utility-bar--search-box .button {
+	border: none;
+	font-size: var(--small);
+	padding: var(--xxs) var(--xs);
+}
